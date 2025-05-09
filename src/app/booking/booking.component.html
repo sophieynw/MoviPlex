@@ -1,0 +1,97 @@
+<div class="form-content">
+  <form class="booking-form" [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
+    <fieldset>
+      <legend><h2>Booking Form</h2></legend>
+
+      <h3>Movie:</h3>
+      <span>{{
+        movieTitle || "Please select a movie from the home page!"
+      }}</span>
+
+      <div class="form-fields">
+        <!-- theatre selection -->
+        <mat-form-field appearance="outline">
+          <mat-label>Theatre Selection</mat-label>
+          <mat-select id="theatre" formControlName="theatre">
+            @for (t of theatres; track t) {
+            <mat-option [value]="t">{{ t }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+
+        <!-- showtime selection -->
+        <mat-label><strong>Showtimes</strong></mat-label>
+        <mat-radio-group aria-label="Showtimes" formControlName="showtime">
+          @for (s of showtimes; track s) {
+          <mat-radio-button [value]="s">{{ s }}</mat-radio-button>
+          }
+        </mat-radio-group>
+
+        <!-- ticket quantity -->
+        <p><strong>Tickets</strong></p>
+        <mat-form-field appearance="outline">
+          <mat-label>Adult tickets</mat-label>
+          <input
+            matInput
+            formControlName="adult"
+            required
+            type="number"
+            min="1"
+          />
+          @if (bookingForm.get('adult')?.value < 1 &&
+          bookingForm.get('adult')?.touched) {
+          <span>At least one adult ticket must be purchased </span>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Child tickets</mat-label>
+          <input
+            matInput
+            formControlName="child"
+            required
+            type="number"
+            min="0"
+          />
+        </mat-form-field>
+
+        <!-- user information -->
+        <p><strong>Personal Information</strong></p>
+        <mat-form-field appearance="outline">
+          <mat-label>First Name</mat-label>
+          <input matInput formControlName="firstname" required />
+          @if (bookingForm.get('firstname')!.invalid &&
+          bookingForm.get('firstname')!.touched) {
+          <span>This field is required</span>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Last Name</mat-label>
+          <input matInput formControlName="lastname" required />
+          @if (bookingForm.get('lastname')!.invalid &&
+          bookingForm.get('lastname')!.touched) {
+          <span>This field is required</span>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" required email />
+          @if (bookingForm.get('email')!.hasError('required') &&
+          bookingForm.get('email')!.touched) {
+          <span>This field is required</span>
+          } @if (bookingForm.get('email')!.hasError('email') &&
+          bookingForm.get('email')!.touched) {
+          <span>Please enter a valid email</span>
+          }
+        </mat-form-field>
+
+        <!-- submission -->
+        <button mat-raised-button type="submit" [disabled]="!bookingForm.valid">
+          Submit
+        </button>
+      </div>
+    </fieldset>
+  </form>
+</div>

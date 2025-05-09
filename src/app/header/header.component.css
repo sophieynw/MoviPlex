@@ -1,0 +1,25 @@
+.header {
+  gap: 0.8rem;
+}
+
+.logo {
+  /* height: 50px; */
+  width: 150px;
+  object-fit: cover;
+  overflow: hidden;
+  display: block;
+}
+
+.header-spacer {
+  flex: 1 1 auto;
+}
+
+@media (max-width: 600px) {
+  .logo {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    overflow: hidden;
+    display: block;
+  }
+}

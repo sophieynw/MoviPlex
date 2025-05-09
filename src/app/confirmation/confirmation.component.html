@@ -1,0 +1,12 @@
+<h3>Booking Confirmation</h3>
+
+@if (booking) {
+<p><strong>Total Tickets:</strong> {{ booking.adult + booking.child }}</p>
+<p>(Adult: {{ booking.adult }}, Child: {{ booking.child }})</p>
+<p><strong>Movie Title:</strong> {{ booking.movieTitle }}</p>
+<p><strong>Showtime:</strong> {{ booking.showtime }}</p>
+<p>
+  <strong>Total Cost:</strong> ${{ booking.adult * 10 + booking.child * 8 }}
+</p>
+<button mat-raised-button (click)="onOK()">OK</button>
+}

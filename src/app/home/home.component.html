@@ -1,0 +1,37 @@
+<div class="home-header">
+  <h2>Welcome to MoviPlex!</h2>
+  <p>
+    Discover the latest action-packed blockbusters and mind-bending thrillers,
+    all in one place.
+  </p>
+</div>
+<div class="movie-cards">
+  <h3>Action Movies</h3>
+  <section class="action-movies">
+    @for (movie of action; track movie) {
+    <mat-card (click)="bookMovie(movie.title)">
+      <mat-card-header>{{ movie.title | uppercase }}</mat-card-header>
+      <img mat-card-image src="{{ movie.poster }}" />
+      <mat-card-content>
+        <p><b>Genre: </b>{{ movie.genre }}</p>
+        <p><b>Duration: </b>{{ movie.duration }}</p>
+        <p><b>Rating: </b>{{ movie.rating }}</p>
+      </mat-card-content>
+    </mat-card>
+    }
+  </section>
+  <h3>Thriller Movies</h3>
+  <section class="thriller-movies">
+    @for (movie of thriller; track movie) {
+    <mat-card (click)="bookMovie(movie.title)">
+      <mat-card-header>{{ movie.title | uppercase }}</mat-card-header>
+      <img mat-card-image src="{{ movie.poster }}" />
+      <mat-card-content>
+        <p><b>Genre: </b>{{ movie.genre }}</p>
+        <p><b>Duration: </b>{{ movie.duration }}</p>
+        <p><b>Rating: </b>{{ movie.rating }}</p>
+      </mat-card-content>
+    </mat-card>
+    }
+  </section>
+</div>

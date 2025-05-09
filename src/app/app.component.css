@@ -1,0 +1,26 @@
+* {
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  /* margin: 25px; */
+}
+
+footer {
+  padding: 1rem;
+  text-align: center;
+}

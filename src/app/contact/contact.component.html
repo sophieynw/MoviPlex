@@ -1,0 +1,79 @@
+<div class="form-content">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="contact-form">
+    <fieldset>
+      <legend>
+        <h2>Contact Form</h2>
+      </legend>
+      <div class="form-fields">
+        <mat-form-field appearance="outline">
+          <mat-label>First Name</mat-label>
+          <input
+            matInput
+            id="firstname"
+            ngModel
+            name="firstname"
+            required
+            #firstname="ngModel"
+          />
+          @if (!firstname.valid && firstname.touched) {
+          <span>This field is required</span>
+          }
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Last Name</mat-label>
+          <input
+            matInput
+            id="lastname"
+            ngModel
+            name="lastname"
+            required
+            #lastname="ngModel"
+          />
+          @if (!lastname.valid && lastname.touched) {
+          <span>This field is required</span>
+          }
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            id="email"
+            ngModel
+            name="email"
+            required
+            #email="ngModel"
+            email
+          />
+          @if (email.hasError('required') && email.touched) {
+          <span>This field is required</span>
+          } @if (email.hasError('email') && email.touched) {
+          <span>Please enter a valid email</span>
+          }
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Message</mat-label>
+          <textarea
+            matInput
+            id="message"
+            ngModel
+            name="message"
+            required
+            #message="ngModel"
+          >
+          </textarea>
+          @if (!message.valid && message.touched) {
+          <span>This field is required</span>
+          }
+        </mat-form-field>
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="!f.valid"
+        >
+          Submit
+        </button>
+      </div>
+    </fieldset>
+  </form>
+</div>

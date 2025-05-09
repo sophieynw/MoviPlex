@@ -1,0 +1,26 @@
+<div class="home-header">
+  <h2>Booking Summary</h2>
+</div>
+
+<div class="booking-cards">
+  @if (bookingList.length !== 0) { @for (booking of bookingList; track booking)
+  {
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title
+        ><strong>Movie: {{ booking.movieTitle }}</strong></mat-card-title
+      >
+      <mat-card-subtitle>Showtime: {{ booking.showtime }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>Total Tickets: {{ booking.adult + booking.child }}</p>
+      <p>(Adult: {{ booking.adult }}, Child: {{ booking.child }})</p>
+      <p>Total Cost: ${{ booking.adult * 10 + booking.child * 8 }}</p>
+      <p>Booking ID: {{ booking.id }}</p>
+    </mat-card-content>
+  </mat-card>
+  } }
+</div>
+@if (bookingList.length === 0) {
+<p>You have no bookings.</p>
+}

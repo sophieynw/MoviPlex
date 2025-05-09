@@ -1,0 +1,65 @@
+.home-header {
+  margin: 2rem;
+}
+
+.action-movies,
+.thriller-movies {
+  margin: 30px 0px;
+  padding: 0 25px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 25px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
+}
+
+.action-movies mat-card,
+.thriller-movies mat-card {
+  scroll-snap-align: center;
+}
+
+@media (max-width: 1000px) {
+
+  .action-movies,
+  .thriller-movies {
+    margin: 30px 0px;
+    padding: 0 25px;
+    display: flex;
+    justify-content: start;
+    flex-wrap: nowrap;
+    gap: 25px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 10px;
+  }
+
+  .action-movies mat-card,
+  .thriller-movies mat-card {
+    scroll-snap-align: center;
+  }
+}
+
+mat-card {
+  width: 300px;
+  flex-shrink: 0;
+  border-radius: 5px;
+}
+
+mat-card-header {
+  padding: 20px;
+  font-weight: 700;
+}
+
+mat-card img {
+  height: 400px;
+  object-fit: cover;
+  overflow: hidden;
+  display: block;
+}
+
+mat-card-content {
+  padding: 0px 20px 20px 20px;
+  text-align: left;
+}
